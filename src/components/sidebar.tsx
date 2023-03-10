@@ -9,19 +9,7 @@ interface Props {
 
 const SideBar: React.FC<Props> = ({ children }) => {
   const currentRoute = useLocation()
-  const window = document.getElementById('root') as HTMLElement
-
-  useLayoutEffect(() => {
-    if (window.clientWidth > 375) {
-      setOpen(true)
-    } else {
-      setOpen(false)
-    }
-  }, [window.clientWidth])
-
-  const [open, setOpen] = useState<boolean>(false)
-
-  console.log('open', open)
+  const [open, setOpen] = useState<boolean>(true)
   return (
     <>
       <button
@@ -56,7 +44,6 @@ const SideBar: React.FC<Props> = ({ children }) => {
                     className={`flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-700 ease-in-out ${
                       sidebar.link === currentRoute.pathname && 'bg-gray-700'
                     }`}
-                    onClick={() => setOpen(false)}
                   >
                     {sidebar.isIndex ? (
                       <svg
@@ -93,7 +80,7 @@ const SideBar: React.FC<Props> = ({ children }) => {
         </aside>
       )}
 
-      <div className='p-4 sm:ml-64'>{children}</div>
+      <div className='p-4 sm:ml-64 overflow-x-scroll'>{children}</div>
     </>
   )
 }

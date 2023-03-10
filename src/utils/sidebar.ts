@@ -14,4 +14,8 @@ export const SideBarData: SideBarProps[] = [
     link: '/use-memo',
     name: 'Use Memo',
   },
+  {
+    link: '/use-callback',
+    name: 'Use CallBack',
+  },
 ]

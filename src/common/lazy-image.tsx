@@ -7,23 +7,24 @@ interface LazyImageProps {
 
 const LazyImage: React.FC<LazyImageProps> = ({ placeholderSrc, src }) => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [isPlaceholder, setIsPlaceholder] = useState<boolean>(false);
 	const [view, setView] = useState<string>('');
 	const placeholderRef = useRef<HTMLImageElement | any>(null);
 	const imageRef = useRef<HTMLImageElement | any>(null);
 
 	useEffect(() => {
-		const observer = new IntersectionObserver((entries) => {
-			console.log(entries);
-			if (entries[0].isIntersecting) {
-				setView(src);
-				observer.unobserve(placeholderRef.current);
+		if (document.readyState === 'complete') {
+			const observer = new IntersectionObserver((entries) => {
+				if (entries[0].isIntersecting) {
+					setView(src);
+					observer.unobserve(placeholderRef.current);
+				}
+			});
+			if (placeholderRef && placeholderRef.current && isPlaceholder) {
+				observer.observe(placeholderRef.current);
 			}
-		});
-
-		if (placeholderRef && placeholderRef.current) {
-			observer.observe(placeholderRef.current);
 		}
-	}, []);
+	}, [src, isPlaceholder]);
 
 	return (
 		<>
@@ -31,8 +32,9 @@ const LazyImage: React.FC<LazyImageProps> = ({ placeholderSrc, src }) => {
 				<img
 					src={placeholderSrc}
 					alt="Placeholder"
-					className={'rounded-md shadow-md'}
+					className="rounded-md shadow-md w-full h-full"
 					ref={placeholderRef}
+					onLoad={() => setIsPlaceholder(true)}
 				/>
 			)}
 			<img

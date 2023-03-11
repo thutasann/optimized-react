@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { ReactNode, useLayoutEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { SideBarData } from '../utils/sidebar';
+import { SideBarData } from '../mock/sidebar';
 import { SiJavascript } from 'react-icons/si';
 import Input from '../common/input';
 

@@ -2,6 +2,8 @@
 import React, { ReactNode, useLayoutEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import { SideBarData } from '../utils/sidebar'
+import { SiJavascript } from 'react-icons/si'
+import Input from '../common/input'
 
 interface Props {
   children: ReactNode
@@ -9,7 +11,11 @@ interface Props {
 
 const SideBar: React.FC<Props> = ({ children }) => {
   const currentRoute = useLocation()
+  const [sidebarInput, setSidebarInput] = useState('')
   const [open, setOpen] = useState<boolean>(true)
+
+  const Filtered = SideBarData.filter(val => val.name.toLocaleLowerCase().includes(sidebarInput))
+
   return (
     <>
       <button
@@ -37,41 +43,54 @@ const SideBar: React.FC<Props> = ({ children }) => {
         >
           <div className='h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800'>
             <ul className='space-y-2'>
-              {SideBarData.map(sidebar => (
+              <li>
+                <Link
+                  to='/'
+                  className={`flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 ease-in-out ${
+                    currentRoute.pathname === '/' && 'bg-gray-700'
+                  }`}
+                >
+                  <svg
+                    aria-hidden='true'
+                    className='w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white'
+                    fill='currentColor'
+                    viewBox='0 0 20 20'
+                    xmlns='http://www.w3.org/2000/svg'
+                  >
+                    <path d='M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z'></path>
+                    <path d='M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z'></path>
+                  </svg>
+                  <span className='font-bold flex items-center gap-3 ml-3 '>REACT OPTIMIZED</span>
+                </Link>
+              </li>
+              <li>
+                <Input
+                  type='text'
+                  value={sidebarInput}
+                  onChange={(e: any) => setSidebarInput(e.target.value.toLowerCase())}
+                  placholder='Search'
+                  isSerach
+                />
+              </li>
+              {Filtered.map(sidebar => (
                 <li key={sidebar.link}>
                   <Link
                     to={sidebar.link}
-                    className={`flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-700 ease-in-out ${
+                    className={`flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 ease-in-out ${
                       sidebar.link === currentRoute.pathname && 'bg-gray-700'
                     }`}
                   >
-                    {sidebar.isIndex ? (
-                      <svg
-                        aria-hidden='true'
-                        className='w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white'
-                        fill='currentColor'
-                        viewBox='0 0 20 20'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path d='M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z'></path>
-                        <path d='M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z'></path>
-                      </svg>
-                    ) : (
-                      <svg
-                        className='w-6 h-6'
-                        aria-hidden='true'
-                        fill='currentColor'
-                        viewBox='0 0 20 20'
-                        xmlns='http://www.w3.org/2000/svg'
-                      >
-                        <path
-                          clipRule='evenodd'
-                          fillRule='evenodd'
-                          d='M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z'
-                        ></path>
-                      </svg>
-                    )}
-                    <span className={`ml-3 font-bold ${sidebar.isIndex && 'uppercase'}`}>{sidebar.name}</span>
+                    <svg className='w-6 h-6' aria-hidden='true' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
+                      <path
+                        clipRule='evenodd'
+                        fillRule='evenodd'
+                        d='M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z'
+                      ></path>
+                    </svg>
+
+                    <span className={`font-bold flex items-center gap-3 ml-3  ${sidebar.isIndex && 'uppercase'}`}>
+                      {sidebar.name} {sidebar.isJs && <SiJavascript />}
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -80,7 +99,7 @@ const SideBar: React.FC<Props> = ({ children }) => {
         </aside>
       )}
 
-      <div className='p-4 sm:ml-64 overflow-x-scroll'>{children}</div>
+      <div className='p-4 sm:ml-64'>{children}</div>
     </>
   )
 }

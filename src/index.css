@@ -6,3 +6,7 @@ body {
   background-color: #0e1117;
   color: rgb(255, 254, 253);
 }
+
+.button {
+  @apply bg-gray-700 px-3 py-2 mt-5 rounded-md font-[500] text-sm hover:bg-gray-600 transition-all duration-700 ease-in-out flex items-center gap-2 cursor-pointer text-center w-fit;
+}

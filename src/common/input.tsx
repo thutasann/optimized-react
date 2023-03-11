@@ -16,7 +16,7 @@ const Input: React.FC<Props> = ({ value, onChange, type, label, maxLength, plach
     <div className='flex flex-col gap-2 relative group'>
       <label className='text-md font-semibold'>{label}</label>
       <input
-        className='text-slate-900 rounded-md focus:outline-none focus:ring-0 focus:border-none bg-gray-100'
+        className='rounded-md focus:outline-none border-none focus:ring-0 focus:border-none bg-gray-100 text-slate-600'
         value={value}
         onChange={onChange}
         type={type}

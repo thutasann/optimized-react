@@ -12,5 +12,5 @@ body {
 }
 
 p {
-  @apply mt-2;
+  @apply mt-2 text-[15px];
 }

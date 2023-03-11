@@ -27,7 +27,7 @@ const UseMemo = () => {
 
   return (
     <div>
-      <Heading text='React Memo' description='In this section, React Memo will be applied to optimize the Heavy Functions' />
+      <Heading text='Use Memo' description='In this section, Use Memo Hook will be applied to optimize the Heavy Functions' />
       <FlexBox>
         <Button text='Decrement' onClick={() => setCounter(counter - 1)} />
         <Button text='Increment' onClick={() => setCounter(counter + 1)} />

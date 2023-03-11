@@ -5,13 +5,14 @@ import ReactMemo from './pages/react-memo'
 import UseMemo from './pages/use-memo'
 import { GitHubLink } from './utils/static-data'
 import { BsGithub } from 'react-icons/bs'
+import UseCallBack from './pages/use-callback'
 
 function App() {
   const route = useLocation().pathname
   return (
     <div>
       <SideBar>
-        <div className='mb-7 mr-2 fixed z-[999] right-0'>
+        <div className='mb-7 mr-5 fixed z-[999] right-0'>
           {route !== '/' && (
             <a
               href={`${GitHubLink}${route}.tsx`}
@@ -27,6 +28,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/react-memo' element={<ReactMemo />} />
           <Route path='/use-memo' element={<UseMemo />} />
+          <Route path='/use-callback' element={<UseCallBack />} />
         </Routes>
       </SideBar>
     </div>

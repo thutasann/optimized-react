@@ -18,4 +18,8 @@ export const SideBarData: SideBarProps[] = [
     link: '/use-callback',
     name: 'Use Callback',
   },
+  {
+    link: '/lazy-image-load',
+    name: 'Lazy Image Load',
+  },
 ]

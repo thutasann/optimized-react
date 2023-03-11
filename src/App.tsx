@@ -6,6 +6,7 @@ import UseMemo from './pages/use-memo'
 import { GitHubLink } from './utils/static-data'
 import { BsGithub } from 'react-icons/bs'
 import UseCallBack from './pages/use-callback'
+import LazyImageLoad from './pages/lazy-image-load'
 
 function App() {
   const route = useLocation().pathname
@@ -20,7 +21,7 @@ function App() {
               rel='noreferrer'
               className='bg-gray-700 rounded-md px-3 py-2 hover:bg-gray-600 transition-all duration-300 ease-in-out text-sm font-[600] flex items-center gap-1'
             >
-              View Code on GitHub <BsGithub />
+              view code on <BsGithub />
             </a>
           )}
         </div>
@@ -29,6 +30,7 @@ function App() {
           <Route path='/react-memo' element={<ReactMemo />} />
           <Route path='/use-memo' element={<UseMemo />} />
           <Route path='/use-callback' element={<UseCallBack />} />
+          <Route path='/lazy-image-load' element={<LazyImageLoad />} />
         </Routes>
       </SideBar>
     </div>

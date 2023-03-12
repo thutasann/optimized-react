@@ -19,13 +19,19 @@ const LazyImageLoad: React.FC = () => {
 		<div>
 			<Heading text="Custom Image Lazy Load" />
 			<div className="grid grid-cols-2 w-full gap-3">
-				{photos?.map((photo, index) => (
-					<LazyImage
-						key={index}
-						placeholderSrc="./placeholder.png"
-						src={photo.download_url}
-					/>
-				))}
+				{photos?.length === 0 ? (
+					<p className="animate-pulse">Loading...</p>
+				) : (
+					<>
+						{photos?.map((photo, index) => (
+							<LazyImage
+								key={index}
+								placeholderSrc="./placeholder.png"
+								src={photo.download_url}
+							/>
+						))}
+					</>
+				)}
 			</div>
 		</div>
 	);

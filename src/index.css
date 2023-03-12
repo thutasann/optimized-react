@@ -3,14 +3,22 @@
 @tailwind utilities;
 
 body {
-  background-color: #0e1117;
-  color: rgb(255, 254, 253);
+	background-color: #0e1117;
+	color: rgb(255, 254, 253);
+}
+
+*::selection {
+	@apply bg-gray-700 text-gray-100;
 }
 
 .button {
-  @apply bg-gray-700 px-3 py-2 mt-5 rounded-md font-[500] text-sm hover:bg-gray-600 transition-all duration-700 ease-in-out flex items-center gap-2 cursor-pointer text-center w-fit;
+	@apply bg-gray-700 px-3 py-2 mt-5 rounded-md font-[500] text-sm hover:bg-gray-600 transition-all duration-700 ease-in-out flex items-center gap-2 cursor-pointer text-center w-fit;
+}
+
+.container {
+	@apply border p-5 rounded-md shadow-md border-gray-600;
 }
 
 p {
-  @apply mt-2 text-[15px];
+	@apply mt-2 text-[15px];
 }

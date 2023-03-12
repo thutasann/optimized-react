@@ -33,9 +33,11 @@ const LazyImage: React.FC<LazyImageProps> = ({ placeholderSrc, src }) => {
 				<img
 					src={placeholderSrc}
 					alt="Placeholder"
-					className="rounded-md shadow-md w-full h-full"
+					className="rounded-md shadow-md w-full h-full blur-sm"
 					ref={placeholderRef}
 					onLoad={() => setIsPlaceholder(true)}
+					width="100%"
+					height="100%"
 				/>
 			)}
 			<img
@@ -44,6 +46,8 @@ const LazyImage: React.FC<LazyImageProps> = ({ placeholderSrc, src }) => {
 				onLoad={() => setIsLoading(false)}
 				alt="Lazy"
 				ref={imageRef}
+				width="100%"
+				height="100%"
 			/>
 		</>
 	);

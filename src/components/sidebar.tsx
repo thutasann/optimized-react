@@ -88,8 +88,9 @@ const SideBar: React.FC<Props> = ({ children }) => {
 								<li key={sidebar.link}>
 									<Link
 										to={sidebar.link}
-										className={`flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 ease-in-out ${
-											sidebar.link === currentRoute.pathname && 'bg-gray-700'
+										className={`flex items-center p-2 text-base  text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 ease-in-out ${
+											sidebar.link === currentRoute.pathname &&
+											'bg-gray-700 font-bold'
 										}`}
 									>
 										<svg
@@ -106,11 +107,7 @@ const SideBar: React.FC<Props> = ({ children }) => {
 											></path>
 										</svg>
 
-										<span
-											className={`font-bold flex items-center gap-3 ml-3  ${
-												sidebar.isIndex && 'uppercase'
-											}`}
-										>
+										<span className={` flex items-center gap-3 ml-3`}>
 											{sidebar.name} {sidebar.isJs && <SiJavascript />}
 										</span>
 									</Link>

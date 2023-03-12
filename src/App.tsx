@@ -7,6 +7,7 @@ import { GitHubLink } from './mock/static-data';
 import { BsGithub } from 'react-icons/bs';
 import UseCallBack from './pages/use-callback';
 import LazyImageLoad from './pages/lazy-image-load';
+import InfinityScroll from './pages/infinity-scroll';
 
 function App() {
 	const route = useLocation().pathname;
@@ -45,6 +46,10 @@ function App() {
 					<Route
 						path="/lazy-image-load"
 						element={<LazyImageLoad />}
+					/>
+					<Route
+						path="/infinity-scroll"
+						element={<InfinityScroll />}
 					/>
 				</Routes>
 			</SideBar>

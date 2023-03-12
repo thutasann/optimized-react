@@ -22,4 +22,8 @@ export const SideBarData: SideBarProps[] = [
 		link: '/lazy-image-load',
 		name: 'Lazy Image Load',
 	},
+	{
+		link: '/infinity-scroll',
+		name: 'Infinity Scroll',
+	},
 ];

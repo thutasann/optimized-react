@@ -26,4 +26,8 @@ export const SideBarData: SideBarProps[] = [
 		link: '/infinity-scroll',
 		name: 'Infinity Scroll',
 	},
+	{
+		link: '/mastering-arrays',
+		name: 'Mastering Arrays',
+	},
 ];

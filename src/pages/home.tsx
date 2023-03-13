@@ -8,7 +8,7 @@ const Home = () => {
 			<h1 className="text-4xl font-bold">OPTIMIZED REACT</h1>
 			<p className="text-xl text-center">
 				This site contains Optimization Techniques for React, React Hook and
-				React Redux.
+				React Redux and TypeScript.
 			</p>
 			<Link
 				to={SideBarData[0].link}

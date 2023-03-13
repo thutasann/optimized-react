@@ -5,6 +5,10 @@ interface Props {
 	description?: string;
 }
 
+interface SubHeadingProps {
+	text: string;
+}
+
 export const Heading: React.FC<Props> = ({ text, description }) => {
 	return (
 		<div className="mb-7">
@@ -16,4 +20,8 @@ export const Heading: React.FC<Props> = ({ text, description }) => {
 			)}
 		</div>
 	);
+};
+
+export const SubHeading: React.FC<SubHeadingProps> = function ({ text }) {
+	return <h3 className="text-lg font-semibold mb-3">{text}</h3>;
 };

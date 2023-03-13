@@ -8,6 +8,7 @@ import { BsGithub } from 'react-icons/bs';
 import UseCallBack from './pages/use-callback';
 import LazyImageLoad from './pages/lazy-image-load';
 import InfinityScroll from './pages/infinity-scroll';
+import MasteringArrays from './pages/mastering-arrays';
 
 function App() {
 	const route = useLocation().pathname;
@@ -50,6 +51,10 @@ function App() {
 					<Route
 						path="/infinity-scroll"
 						element={<InfinityScroll />}
+					/>
+					<Route
+						path="/mastering-arrays"
+						element={<MasteringArrays />}
 					/>
 				</Routes>
 			</SideBar>
